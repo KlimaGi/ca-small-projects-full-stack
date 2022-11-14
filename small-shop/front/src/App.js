@@ -20,7 +20,7 @@ function App() {
     const productData = {
       product, image, price
     }
-    console.log('productData', productData);
+
     const options = {
       method: 'POST',
       headers: {
@@ -44,7 +44,7 @@ function App() {
       <AddProduct send={send} />
 
 
-      <AllProducts products={products} />
+      <AllProducts products={products} setProducts={setProducts} />
 
 
 

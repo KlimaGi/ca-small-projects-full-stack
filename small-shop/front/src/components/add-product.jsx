@@ -13,6 +13,9 @@ const AddProduct = ({ send }) => {
     };
     send(productData);
 
+    productNameRef.current.value = '';
+    productImageRef.current.value = '';
+    priceRef.current.value = '';
   }
 
   return (
