@@ -1,0 +1,7 @@
+// create application where user can add products to fake internet shop
+// each product should have these props: photo, price, title
+// products should be uploaded to back-and
+// products should be shown in front end
+// there should be possibility to delete product from back end (send request from front-end)
+// if that was easy, add shopping cart logic
+// user adds product to shopping cart and cart shows total amount of products and total price
