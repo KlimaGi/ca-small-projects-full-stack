@@ -2,14 +2,14 @@ import React from 'react'
 
 const ProductItem = ({ product, index, setProducts }) => {
   const removeProduct = async () => {
-    console.log('remove');
-    console.log('index', index);
-    const res = await fetch(`http://localhost:4000/deleteProduct/${index}/${product.product}`);
+    const res = await fetch(`http://localhost:4000/deleteProduct/${index}`);
     const data = await res.json();
-    console.log('data', data);
     setProducts(data.productsData);
   }
 
+  const addToCart = () => {
+    console.log('add');
+  }
 
   return (
     <div
@@ -22,11 +22,20 @@ const ProductItem = ({ product, index, setProducts }) => {
         alt={product.product} />
       <p>{product.product}</p>
       <p>{product.price}</p>
-      <button
-        onClick={removeProduct}
-        type='button'
-        className='button'
-      >x</button>
+      <div>
+        <button
+          onClick={removeProduct}
+          type='button'
+          className='button'
+        >x</button>
+        <button
+          onClick={addToCart}
+          type='button'
+          className='button'
+        >add to cart</button>
+      </div>
+
+
     </div>
   )
 }

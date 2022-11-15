@@ -3,16 +3,22 @@
   --grey: #a5a5c0;
   --light-grey: #d0d0e7;
   --light: #e2e2f0;
+  --more-light: #ececf1;
+  --light-opacity: #fafaffd2;
 }
 *{
   box-sizing: border-box;
   color: var(--dark);
   font-size: 1.1rem;
+  margin: 0;
 }
 
 .d-flex {
   display: flex;
   justify-content: center;
+}
+.j-btw{
+  justify-content: space-between;
 }
 .f-direction {
   flex-direction: column;
@@ -82,4 +88,20 @@
   margin: 0.5rem;
   display: flex;
   justify-content: space-between;
+}
+
+.cart {
+  position: relative;
+  left: calc(50% - 25rem);
+  top: 20rem;
+  width: 50rem;
+  height: 30rem;
+  background-color: var(--light);
+}
+.cart-back{
+  position: absolute;
+  background-color: var(--light-opacity);
+  width: 100%;
+  height: 100%;
+  
 }

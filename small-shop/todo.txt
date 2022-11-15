@@ -5,3 +5,6 @@
 *// there should be possibility to delete product from back end (send request from front-end)
 // if that was easy, add shopping cart logic
 // user adds product to shopping cart and cart shows total amount of products and total price
+
+// sutvarkyti controllerius 
+// plugin/http ikelti 

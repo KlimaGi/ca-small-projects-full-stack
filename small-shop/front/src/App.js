@@ -1,25 +1,17 @@
 import React, { useState } from 'react';
 import AddProduct from './components/add-product';
 import AllProducts from './components/all-products';
+import Cart from './components/cart';
 import './styles.css';
 
 function App() {
-
-
   const [products, setProducts] = useState([]);
-
-
-  // async function handleDelete(name) {
-  //   const res = await fetch('http://localhost:4000/user/' + name, { method: 'DELETE' });
-  //   const data = await res.json();
-  //   setNames(data.names);
-  //   console.log('data deleted', data);
-  // }
+  const [showCart, setShowCart] = useState(false);
 
   async function send(product, image, price) {
     const productData = {
       product, image, price
-    }
+    };
 
     const options = {
       method: 'POST',
@@ -33,23 +25,25 @@ function App() {
     const data = await res.json();
 
     setProducts(data);
-    console.log('products', products);
-
   }
 
   return (
     <div className='d-flex f-direction'>
-      <h3>shop example</h3>
+      <div className='d-flex j-btw'>
+        <h3>shop example</h3>
+        <button className='button' onClick={() => setShowCart(true)} type='button' >show cart</button>
 
+      </div>
       <AddProduct send={send} />
-
 
       <AllProducts products={products} setProducts={setProducts} />
 
 
+      {
+        showCart && <Cart setShowCart={setShowCart} />
+      }
 
-
-    </div>
+    </div >
   );
 }
 
