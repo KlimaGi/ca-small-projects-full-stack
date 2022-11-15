@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProductItem = ({ product, index, setProducts }) => {
+const ProductItem = ({ product, index, setProducts, cart, setCart }) => {
   const removeProduct = async () => {
     const res = await fetch(`http://localhost:4000/deleteProduct/${index}`);
     const data = await res.json();
@@ -9,6 +9,8 @@ const ProductItem = ({ product, index, setProducts }) => {
 
   const addToCart = () => {
     console.log('add');
+    const newCart = [...cart, product];
+    setCart(newCart);
   }
 
   return (
@@ -21,7 +23,7 @@ const ProductItem = ({ product, index, setProducts }) => {
         src={product.image}
         alt={product.product} />
       <p>{product.product}</p>
-      <p>{product.price}</p>
+      <p>{product.price} $</p>
       <div>
         <button
           onClick={removeProduct}

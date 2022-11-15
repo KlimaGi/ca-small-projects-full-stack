@@ -23,6 +23,7 @@
 .f-direction {
   flex-direction: column;
 }
+
 .container {
   width: 20rem;
   background-color: var(--light);

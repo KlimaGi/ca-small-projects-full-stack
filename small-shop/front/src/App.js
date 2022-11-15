@@ -7,6 +7,7 @@ import './styles.css';
 function App() {
   const [products, setProducts] = useState([]);
   const [showCart, setShowCart] = useState(false);
+  const [cart, setCart] = useState([]);
 
   async function send(product, image, price) {
     const productData = {
@@ -36,11 +37,10 @@ function App() {
       </div>
       <AddProduct send={send} />
 
-      <AllProducts products={products} setProducts={setProducts} />
-
+      <AllProducts products={products} setProducts={setProducts} cart={cart} setCart={setCart} />
 
       {
-        showCart && <Cart setShowCart={setShowCart} />
+        showCart && <Cart setShowCart={setShowCart} cart={cart} />
       }
 
     </div >
