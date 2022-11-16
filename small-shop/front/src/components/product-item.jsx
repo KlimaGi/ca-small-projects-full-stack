@@ -1,14 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { get } from '../plugins/http';
 
 const ProductItem = ({ product, index, setProducts, cart, setCart }) => {
   const removeProduct = async () => {
-    const res = await fetch(`http://localhost:4000/deleteProduct/${index}`);
-    const data = await res.json();
-    setProducts(data.productsData);
+    const res = await get(`deleteProduct/${index}`);
+    setProducts(res.productsData);
   }
 
   const addToCart = () => {
-    console.log('add');
     const newCart = [...cart, product];
     setCart(newCart);
   }

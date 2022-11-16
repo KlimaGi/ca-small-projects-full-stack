@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { post } from './plugins/http';
 import AddProduct from './components/add-product';
 import AllProducts from './components/all-products';
 import Cart from './components/cart';
@@ -13,18 +14,7 @@ function App() {
     const productData = {
       product, image, price
     };
-
-    const options = {
-      method: 'POST',
-      headers: {
-        "content-type": "application/json"
-      },
-      body: JSON.stringify(productData)
-    }
-
-    const res = await fetch("http://localhost:4000/addProduct", options);
-    const data = await res.json();
-
+    const data = await post("addProduct", productData);
     setProducts(data);
   }
 
