@@ -6,6 +6,7 @@
   --more-light: #ececf1;
   --light-opacity: #fafaffd2;
 }
+
 *{
   box-sizing: border-box;
   color: var(--dark);

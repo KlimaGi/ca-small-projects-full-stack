@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const controller = require('../controllers/mainController');
+const { createProduct, deleteProduct } = require('../controllers/mainController');
 
-router.post('/addProduct', controller.createProduct);
-router.get('/deleteProduct/:index', controller.deleteProduct)
-
+router.post('/addProduct', createProduct);
+router.get('/deleteProduct/:index', deleteProduct)
 
 module.exports = router; 

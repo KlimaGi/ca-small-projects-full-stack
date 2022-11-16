@@ -8,7 +8,7 @@ const Cart = ({ setShowCart, cart }) => {
     <div className='cart-back'>
       <div className='cart'>
         <div className='d-flex j-btw'>
-          <div></div>
+          <div>Your cart</div>
           <button type='button' onClick={() => setShowCart(false)}>x</button>
         </div>
 

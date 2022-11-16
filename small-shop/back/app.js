@@ -10,4 +10,6 @@ app.use(express.json());
 
 app.listen(4000);
 
+// visos uzklausos yra nusiunciamos i mainRouter
+// o router'is paskirsto koks kontroleris kokiam route'ui vykdomas
 app.use('/', mainRouter);
