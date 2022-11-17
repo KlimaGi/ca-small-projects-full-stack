@@ -1,10 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { post } from '../plugins/http';
 
-const WriteMessageBlock = () => {
+const WriteMessageBlock = ({ setMessages }) => {
   const chatInpRef = useRef()
   const chatTextRef = useRef();
-  const [messages, setMessages] = useState([]);
 
   async function addMsg() {
     const msgData = {
@@ -40,4 +39,4 @@ const WriteMessageBlock = () => {
   )
 }
 
-export default WriteMessageBlock
+export default WriteMessageBlock;
