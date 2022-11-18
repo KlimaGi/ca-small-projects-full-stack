@@ -31,7 +31,7 @@ const WriteMessageBlock = ({ setMessages }) => {
       <textarea
         ref={chatTextRef}
         placeholder='your message'
-        className='input'
+        className='input grow-1'
         type='text' />
       <button onClick={addMsg} className='button'>Add</button>
     </div>
