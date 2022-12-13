@@ -1,8 +1,9 @@
 import React from 'react';
-import './styles.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PostsPage from './pages/posts-page.jsx';
+import MainContext from './context/MainContext';
 import IndexPage from './pages/index-page';
+import MainBox from './components/main-box';
+import './styles.css';
 
 
 function App() {
@@ -11,15 +12,10 @@ function App() {
     <>
       <h3>Posts page</h3>
       <div className='main'>
+        <MainContext.Provider value={{}}>
 
-        <BrowserRouter>
-          <Routes>
-            <Route path='/' element={<IndexPage />} />
-            <Route path='/posts' element={<PostsPage />} />
-
-          </Routes>
-
-        </BrowserRouter>
+          <MainBox />
+        </MainContext.Provider>
       </div>
     </>
   );
