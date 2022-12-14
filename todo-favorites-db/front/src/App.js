@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <h3>Posts page</h3>
+
       <div className='main'>
         <MainContext.Provider value={{}}>
 
