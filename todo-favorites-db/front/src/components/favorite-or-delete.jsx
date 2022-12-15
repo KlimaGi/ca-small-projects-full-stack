@@ -2,8 +2,18 @@ import React from 'react'
 
 const FavoriteOrDelete = () => {
   return (
-    <div>
-      favorite or delete
+    <div className='main'>
+      <button
+        type='button'
+        className='button'
+      >
+        Add to favorites
+      </button>
+      <button
+        type='button'
+        className='button'
+      > delete
+      </button>
     </div>
   )
 }

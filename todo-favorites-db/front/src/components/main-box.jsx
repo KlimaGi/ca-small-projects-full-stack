@@ -6,10 +6,13 @@ import AddNote from './add-note';
 
 const MainBox = () => {
   return (
-    <div className=''>
-      mainbox
+    <div className='container d-flex fd-column'>
       <BoxTop />
-      <NoteCard />
+
+      <div className='grow-1'>
+        <NoteCard />
+      </div>
+
       <FavoriteOrDelete />
       <AddNote />
     </div>
