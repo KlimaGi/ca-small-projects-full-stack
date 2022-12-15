@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-const AddNote = () => {
+const AddNote = ({ update }) => {
   const inpRef = useRef();
   const selectRef = useRef();
 
@@ -21,6 +21,14 @@ const AddNote = () => {
     selectRef.current.value = '0';
   }
 
+  const updateNote = () => {
+    const note = {
+      text: inpRef.current.value,
+      time: selectRef.current.value
+    }
+    console.log('note', note);
+
+  }
 
   return (
     <div className='d-flex'>
@@ -30,7 +38,15 @@ const AddNote = () => {
         }
       </select>
       <input ref={inpRef} type="text" placeholder='note' className='grow-1 p-1' />
-      <button type='button' onClick={addNote} className='p-1'>Add</button>
+      {
+        update
+          ?
+          <button type='button' onClick={updateNote} className='p-1'>Update</button>
+          :
+          <button type='button' onClick={addNote} className='p-1'>Add</button>
+
+      }
+
     </div>
   )
 }

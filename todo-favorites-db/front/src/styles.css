@@ -39,9 +39,26 @@ padding: 1rem;
 
 .button:hover{
  cursor: pointer;
+ background-color: #e5e5ee;
 }
 
 .selected {
   background-color: #d0d0e7;
+}
+
+.note {
+  display: flex;
+  border: 1px solid steelblue;
+  
+}
+input[type="checkbox"] {
+  margin: 1rem;
+  border: 1px solid steelblue;
+}
+
+.note div {
+  flex-grow: 1;
+  text-align: start;
+  padding: 0 1rem;
 }
 
