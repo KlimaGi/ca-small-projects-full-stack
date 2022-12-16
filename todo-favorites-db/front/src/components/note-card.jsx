@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AddNote from './add-note';
 
-const NoteCard = () => {
+const NoteCard = ({ note }) => {
   const [showUpdate, setUpdate] = useState(false);
 
 
@@ -13,8 +13,8 @@ const NoteCard = () => {
         showUpdate
           ?
           <div>
-            <p>time</p>
-            <p>Note</p>
+            <p>{note.time}</p>
+            <p>{note.text}</p>
           </div>
           :
           <AddNote update={true} />
