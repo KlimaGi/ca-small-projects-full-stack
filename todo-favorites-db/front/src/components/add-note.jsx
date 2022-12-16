@@ -1,8 +1,12 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
+import MainContext from '../context/MainContext';
+import { post } from '../plugins/http';
 
 const AddNote = ({ update }) => {
   const inpRef = useRef();
   const selectRef = useRef();
+
+  const { setNotes } = useContext(MainContext);
 
   const time = [];
   for (let i = 0; i <= 12; i++) {
@@ -10,12 +14,15 @@ const AddNote = ({ update }) => {
     else time.push(`${i}:00`);
   }
 
-  const addNote = () => {
+  const addNote = async () => {
     const note = {
       text: inpRef.current.value,
       time: selectRef.current.value
     }
-    console.log('note', note);
+
+    const data = await post('addNote', note);
+
+    console.log('data', data);
 
     inpRef.current.value = '';
     selectRef.current.value = '0';
