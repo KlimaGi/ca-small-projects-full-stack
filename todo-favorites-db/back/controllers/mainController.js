@@ -1,4 +1,4 @@
-const noteSchema = require('../schemas/postSchema');
+const noteSchema = require('../schemas/noteSchema');
 
 module.exports = {
   allNotes: async (req, res) => {

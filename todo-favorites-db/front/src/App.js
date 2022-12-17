@@ -22,10 +22,8 @@ function App() {
 
   return (
     <>
-
       <div className='main'>
         <MainContext.Provider value={{ notes, setNotes }}>
-
           <MainBox />
         </MainContext.Provider>
       </div>
