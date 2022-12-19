@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AddNote from './add-note';
 
 const NoteCard = ({ note }) => {
-  const [showUpdate, setUpdate] = useState(false);
+  const [showUpdate, setUpdate] = useState(true);
 
 
   return (
@@ -10,7 +10,7 @@ const NoteCard = ({ note }) => {
       <input className='input' type='checkbox' />
 
       {
-        !showUpdate
+        showUpdate
           ?
           <div>
             <p>Time: {note.time}</p>

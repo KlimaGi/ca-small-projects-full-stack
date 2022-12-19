@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react';
+import MainContext from '../context/MainContext';
 
 const BoxTop = () => {
+  const { notes, favorites } = useContext(MainContext);
   const [selected, setSelected] = useState(false);
   const btnAllStyle = selected ? 'selected' : '';
   const btnFavStyle = selected ? '' : 'selected';
@@ -12,14 +14,14 @@ const BoxTop = () => {
         type='button'
         className={`button ${btnAllStyle}`}
       >
-        All posts
+        All posts ({notes.length})
       </button>
 
       <button
         className={`button ${btnFavStyle}`}
         type='button'
         onClick={() => setSelected(false)}
-      >favorites</button>
+      >favorites ({favorites.length})</button>
     </div >
   )
 }

@@ -6,6 +6,8 @@ import { get } from './plugins/http';
 
 function App() {
   const [notes, setNotes] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+  const [selected, setSelected] = useState([]);
 
   useEffect(() => {
     const allNotes = async () => {
@@ -20,7 +22,7 @@ function App() {
   return (
     <>
       <div className='main'>
-        <MainContext.Provider value={{ notes, setNotes }}>
+        <MainContext.Provider value={{ notes, setNotes, favorites, setFavorites, selected, setSelected }}>
           <MainBox />
         </MainContext.Provider>
       </div>
