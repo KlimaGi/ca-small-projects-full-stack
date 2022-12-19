@@ -6,7 +6,7 @@ const AddNote = ({ update }) => {
   const inpRef = useRef();
   const selectRef = useRef();
 
-  const { setNotes } = useContext(MainContext);
+  const { notes, setNotes } = useContext(MainContext);
 
   const time = [];
   for (let i = 0; i <= 12; i++) {
@@ -24,6 +24,7 @@ const AddNote = ({ update }) => {
 
     console.log('data', data);
 
+    setNotes([...notes, note]);
     inpRef.current.value = '';
     selectRef.current.value = '0';
   }
@@ -51,9 +52,7 @@ const AddNote = ({ update }) => {
           <button type='button' onClick={updateNote} className='p-1'>Update</button>
           :
           <button type='button' onClick={addNote} className='p-1'>Add</button>
-
       }
-
     </div>
   )
 }

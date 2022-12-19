@@ -5,7 +5,6 @@ import FavoriteOrDelete from './favorite-or-delete';
 import AddNote from './add-note';
 import MainContext from '../context/MainContext';
 
-
 const MainBox = () => {
   const { notes } = useContext(MainContext);
   console.log('notes', notes);
@@ -16,7 +15,7 @@ const MainBox = () => {
       <div className='grow-1'>
         {
           notes.length > 0 &&
-          notes.notes.map((note) => <NoteCard note={note} key={note._id} />)
+          notes.map((note) => <NoteCard note={note} key={note._id} />)
         }
 
       </div>

@@ -10,10 +10,10 @@ const NoteCard = ({ note }) => {
       <input className='input' type='checkbox' />
 
       {
-        showUpdate
+        !showUpdate
           ?
           <div>
-            <p>{note.time}</p>
+            <p>Time: {note.time}</p>
             <p>{note.text}</p>
           </div>
           :
