@@ -12,7 +12,11 @@ module.exports = {
     res.send({ note: newNote });
   },
 
+  deleteNote: async (req, res) => {
 
+
+    res.send({ res: req.body });
+  },
   // 31:47
   // 41:01
 }

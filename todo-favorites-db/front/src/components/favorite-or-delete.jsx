@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import MainContext from '../context/MainContext';
+import { post } from '../plugins/http.js';
 
 const FavoriteOrDelete = () => {
   const { selected, favorites, setFavorites } = useContext(MainContext);
@@ -17,6 +18,14 @@ const FavoriteOrDelete = () => {
     setFavorites([...favorites, ...itemsToAdd]);
   };
 
+  const deleteNote = async () => {
+    const ids = selected.map(item => item._id);
+
+    const res = await post('deleteNote', ids);
+    console.log('ids', ids);
+    console.log('res', res);
+  }
+
   return (
     <div className='main'>
       <button
@@ -29,7 +38,8 @@ const FavoriteOrDelete = () => {
       <button
         type='button'
         className='button'
-      > delete
+        onClick={deleteNote}
+      > Delete
       </button>
     </div>
   )

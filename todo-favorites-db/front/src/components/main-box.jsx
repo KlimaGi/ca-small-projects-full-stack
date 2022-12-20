@@ -22,7 +22,10 @@ const MainBox = () => {
       </div>
 
       <FavoriteOrDelete />
-      <AddNote />
+
+      {
+        show && <AddNote />
+      }
     </div>
   )
 }
