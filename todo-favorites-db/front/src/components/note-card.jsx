@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import MainContext from '../context/MainContext';
 import AddNote from './add-note';
 
 const NoteCard = ({ note }) => {
   const [showUpdate, setUpdate] = useState(true);
+  const { selected, setSelected } = useContext(MainContext);
 
+  const checked = (e) => {
+    if (e.target.checked) setSelected([...selected, note]);
+    else {
+      const selectedNotes = selected.filter((x) => x._id !== note._id);
+      setSelected([...selectedNotes]);
+    }
+  }
 
   return (
     <div className='note'>
-      <input className='input' type='checkbox' />
-
+      <input onChange={checked} className='input' type='checkbox' />
       {
         showUpdate
           ?
@@ -19,8 +27,6 @@ const NoteCard = ({ note }) => {
           :
           <AddNote update={true} />
       }
-
-
       <button onClick={() => setUpdate(!showUpdate)} className='p-1'>Edit</button>
     </div>
   )
