@@ -12,7 +12,6 @@ function App() {
   useEffect(() => {
     const allNotes = async () => {
       const res = await get('allNotes');
-      console.log('res-all-notes', res.notes);
       setNotes(res.notes);
     };
     allNotes();
