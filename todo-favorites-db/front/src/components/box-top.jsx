@@ -1,11 +1,16 @@
 import React, { useState, useContext } from 'react';
+import { useEffect } from 'react';
 import MainContext from '../context/MainContext';
 
-const BoxTop = () => {
+const BoxTop = ({ setShow }) => {
   const { notes, favorites } = useContext(MainContext);
   const [selected, setSelected] = useState(false);
   const btnAllStyle = selected ? 'selected' : '';
   const btnFavStyle = selected ? '' : 'selected';
+
+  useEffect(() => {
+    setShow(selected);
+  }, [selected])
 
   return (
     <div className='main'>
