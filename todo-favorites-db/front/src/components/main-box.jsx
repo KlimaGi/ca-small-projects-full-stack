@@ -30,4 +30,4 @@ const MainBox = () => {
   )
 }
 
-export default MainBox
+export default MainBox;

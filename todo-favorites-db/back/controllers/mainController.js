@@ -13,9 +13,11 @@ module.exports = {
   },
 
   deleteNote: async (req, res) => {
+    const arr = req.body;
 
+    await noteSchema.deleteMany({ _id: { $in: arr } })
 
-    res.send({ res: req.body });
+    res.send({ res: 'deleted' });
   },
   // 31:47
   // 41:01

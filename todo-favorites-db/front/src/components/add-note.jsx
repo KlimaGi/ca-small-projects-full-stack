@@ -42,7 +42,7 @@ const AddNote = ({ update }) => {
     <div className='d-flex'>
       <select ref={selectRef} className='p-1'>
         {
-          time.map((hour, index) => <option value={index}>{hour}</option>)
+          time.map((hour, index) => <option value={index} key={index}>{hour}</option>)
         }
       </select>
       <input ref={inpRef} type="text" placeholder='note' className='grow-1 p-1' />

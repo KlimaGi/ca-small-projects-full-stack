@@ -3,7 +3,7 @@ import MainContext from '../context/MainContext';
 import { post } from '../plugins/http.js';
 
 const FavoriteOrDelete = () => {
-  const { selected, favorites, setFavorites } = useContext(MainContext);
+  const { selected, favorites, setFavorites, getAllNotes } = useContext(MainContext);
 
   const addFavorites = () => {
     const itemsToAdd = [];
@@ -20,10 +20,11 @@ const FavoriteOrDelete = () => {
 
   const deleteNote = async () => {
     const ids = selected.map(item => item._id);
+    if (ids.length > 0) {
+      const res = await post('deleteNote', ids);
+      getAllNotes();
+    }
 
-    const res = await post('deleteNote', ids);
-    console.log('ids', ids);
-    console.log('res', res);
   }
 
   return (
