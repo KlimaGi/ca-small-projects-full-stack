@@ -3,7 +3,7 @@ import MainContext from '../context/MainContext';
 import AddNote from './add-note';
 
 const NoteCard = ({ note }) => {
-  const [showUpdate, setUpdate] = useState(true);
+  const [showUpdate, setShowUpdate] = useState(true);
   const { selected, setSelected } = useContext(MainContext);
 
   const checked = (e) => {
@@ -25,9 +25,9 @@ const NoteCard = ({ note }) => {
             <p>{note.text}</p>
           </div>
           :
-          <AddNote update={true} note={note} />
+          <AddNote update={true} note={note} setShowUpdate={setShowUpdate} />
       }
-      <button onClick={() => setUpdate(!showUpdate)} className='p-1'>Edit</button>
+      <button onClick={() => setShowUpdate(!showUpdate)} className='p-1'>Edit</button>
     </div>
   )
 }

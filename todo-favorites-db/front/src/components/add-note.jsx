@@ -1,12 +1,20 @@
 import React, { useContext, useRef } from 'react';
+import { useEffect } from 'react';
 import MainContext from '../context/MainContext';
 import { post } from '../plugins/http';
 
-const AddNote = ({ update, note }) => {
+const AddNote = ({ update, note, setShowUpdate }) => {
   const inpRef = useRef();
   const selectRef = useRef();
 
   const { notes, setNotes, getAllNotes } = useContext(MainContext);
+
+  useEffect(() => {
+    if (update) {
+      inpRef.current.value = note.text;
+      selectRef.current.value = note.time;
+    }
+  }, [])
 
   const time = [];
   for (let i = 0; i <= 12; i++) {
@@ -41,6 +49,7 @@ const AddNote = ({ update, note }) => {
     const allNotes = notes.filter(item => item._id !== note.id);
     setNotes([...allNotes, data.note]);
     getAllNotes();
+    setShowUpdate(true);
   }
 
   return (
