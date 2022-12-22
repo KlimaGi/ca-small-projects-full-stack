@@ -25,7 +25,7 @@ const NoteCard = ({ note }) => {
             <p>{note.text}</p>
           </div>
           :
-          <AddNote update={true} />
+          <AddNote update={true} note={note} />
       }
       <button onClick={() => setUpdate(!showUpdate)} className='p-1'>Edit</button>
     </div>

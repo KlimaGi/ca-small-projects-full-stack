@@ -19,6 +19,18 @@ module.exports = {
 
     res.send({ res: 'deleted' });
   },
+  updateNote: async (req, res) => {
+
+    const { id, time, text } = req.body;
+
+    const updatedNote = await noteSchema.findOneAndUpdate(
+      { _id: id },
+      { $set: { time, text } },
+      { new: true }
+    )
+
+    res.send({ success: true, note: updatedNote });
+  }
   // 31:47
   // 41:01
 }

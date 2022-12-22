@@ -2,11 +2,11 @@ import React, { useContext, useRef } from 'react';
 import MainContext from '../context/MainContext';
 import { post } from '../plugins/http';
 
-const AddNote = ({ update }) => {
+const AddNote = ({ update, note }) => {
   const inpRef = useRef();
   const selectRef = useRef();
 
-  const { notes, setNotes } = useContext(MainContext);
+  const { notes, setNotes, getAllNotes } = useContext(MainContext);
 
   const time = [];
   for (let i = 0; i <= 12; i++) {
@@ -22,20 +22,25 @@ const AddNote = ({ update }) => {
 
     const data = await post('addNote', note);
 
-    console.log('data', data);
+    console.log('data-add-node', data);
 
-    setNotes([...notes, note]);
+    setNotes([...notes, data.note]);
     inpRef.current.value = '';
     selectRef.current.value = '0';
   }
 
-  const updateNote = () => {
-    const note = {
+  const updateNote = async () => {
+    const noteUpdated = {
       text: inpRef.current.value,
-      time: selectRef.current.value
+      time: selectRef.current.value,
+      id: note._id
     }
-    console.log('note', note);
 
+    const data = await post('update', noteUpdated);
+
+    const allNotes = notes.filter(item => item._id !== note.id);
+    setNotes([...allNotes, data.note]);
+    getAllNotes();
   }
 
   return (
