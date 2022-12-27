@@ -12,7 +12,17 @@ mongoose.connect("mongodb+srv://admin:admin@cluster0.ygdrbad.mongodb.net/?retryW
     console.log('connection error')
   })
 
-app.use(cors());
+app.use(
+  session({
+    secret: 'dsfdvaeaf',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false },
+  })
+);
+
+//app.use(cors());
+app.use(cors({ origin: 'http://localhost:3000', credentials: true, methods: 'GET,HEAD,PUT,PATCH,POST,DELETE' }));
 
 app.use(express.json());
 

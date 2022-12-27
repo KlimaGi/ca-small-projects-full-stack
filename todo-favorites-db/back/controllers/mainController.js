@@ -31,6 +31,5 @@ module.exports = {
 
     res.send({ success: true, note: updatedNote });
   }
-  // 31:47
-  // 41:01
+
 }
