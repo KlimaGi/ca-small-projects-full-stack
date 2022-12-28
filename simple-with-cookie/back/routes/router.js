@@ -9,15 +9,11 @@ const {
 } = require("../middleware/middle");
 
 const {
-  register,
-  login,
-  getData,
-  updateBox
+  setColor, getColor
 } = require('../controllers/mainController');
 
-router.post('/register', emailValid, passwordValid, userValid, register);
-router.post('/login', login);
-router.get('/data/:secret', secretValid, getData);
-router.post('/update', secretValid, updateBox);
+
+router.get('/setColor/:color', setColor);
+router.get('/getColor', getColor);
 
 module.exports = router; 
