@@ -1,17 +1,21 @@
 import React, { useRef } from 'react';
+import { get } from '../plugins/http';
 
 const SetColor = () => {
   const colorRef = useRef();
 
-  const serColor = () => {
-    const color = colorRef.current.value;
+  const setColor = async () => {
+    let color = colorRef.current.value;
+    color = color.replace('#', '');
     console.log('color', color);
+    const data = await get(`setColor/${color}`);
+    console.log('data', data);
   }
 
   return (
-    <div>
+    <div >
       <input ref={colorRef} type='color' />
-      <button onClick={serColor} type='button'>set color</button>
+      <button onClick={setColor} type='button'>set color</button>
     </div>
   )
 }

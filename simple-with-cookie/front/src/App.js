@@ -1,5 +1,6 @@
 import React from 'react';
 import SetColor from './components/set-color';
+import GetColor from './components/get-color';
 import './styles.css';
 
 function App() {
@@ -7,8 +8,9 @@ function App() {
 
 
   return (
-    <div>
+    <div className='main'>
       <SetColor />
+      <GetColor />
     </div>
   );
 }
