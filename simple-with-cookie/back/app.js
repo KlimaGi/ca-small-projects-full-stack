@@ -4,6 +4,7 @@ const app = express();
 const cors = require('cors');
 const mongoose = require("mongoose");
 const session = require('express-session');
+const store = new session.MemoryStore();
 const mainRouter = require("./routes/router");
 
 mongoose.connect("mongodb+srv://admin:admin@cluster0.ygdrbad.mongodb.net/?retryWrites=true&w=majority")
@@ -17,6 +18,7 @@ app.use(
     secret: 'dsfdvaeaf',
     resave: false,
     saveUninitialized: true,
+    store,
     cookie: { secure: false },
   })
 );

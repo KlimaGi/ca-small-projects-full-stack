@@ -1,18 +1,25 @@
 const resSend = require('../modules/universalRes');
+const session = require('express-session');
+const store = new session.MemoryStore();
 
 module.exports = {
 
-  setColor: async (req, res) => {
+  setColor: (req, res) => {
 
     req.session.color = req.params.color;
-
-    return resSend(res, false, 'set color');
-  },
-  getColor: async (req, res) => {
     console.log('req.session.color', req.session.color);
-    const color = req.session.color;
 
-    return resSend(res, false, 'get color', color);
+    console.log('store-set', store);
+
+    req.session.save();
+    return resSend(res, false, 'set color', { color: req.session.color });
+  },
+  getColor: (req, res) => {
+    const color = req.session.color;
+    console.log('req.session.color', req.session.color);
+    console.log('store-get', store);
+
+    return resSend(res, false, 'get color', { color });
   }
 
 }

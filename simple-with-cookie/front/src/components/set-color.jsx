@@ -7,9 +7,9 @@ const SetColor = () => {
   const setColor = async () => {
     let color = colorRef.current.value;
     color = color.replace('#', '');
-    console.log('color', color);
+
     const data = await get(`setColor/${color}`);
-    console.log('data', data);
+    console.log('set-data', data);
   }
 
   return (
