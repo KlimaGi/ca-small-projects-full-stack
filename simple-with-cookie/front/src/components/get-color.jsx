@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { get } from '../plugins/http';
 
 const GetColor = () => {
 
+  const [colorSyle, setColorStyle] = useState('')
+
   const getColor = async () => {
-    const data = await get('getColor');
-    console.log('data-get', data);
+    const res = await get('getColor');
+    console.log('data-get', res.data.color);
+    setColorStyle(`#${res.data.color}`)
   }
 
   return (
-    <div className='box'>
+    <div className='box' style={{ backgroundColor: colorSyle }} >
       <button onClick={getColor} type='button'>get color</button>
     </div>
   )
