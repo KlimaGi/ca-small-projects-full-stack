@@ -18,8 +18,9 @@ module.exports = {
   },
   getColor: (req, res) => {
     const color = sessionColor;
+    // const color = req.session.color;
 
-    console.log('store-get', color);
+    console.log('store-get', req.session);
 
     return resSend(res, false, 'get color', { color });
   }
